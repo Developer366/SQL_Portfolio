@@ -26,9 +26,11 @@ World database contains 3 tables:
 ## Select specific Column(s):
 
 `select Name, Population from City;`
+
 ![alt text](SnapShots/select-column.PNG)
 
 ## Select distinct 
+
 `select distinct CountryCode from City;`
 
 ![alt text](SnapShots/select-distinct.PNG)
@@ -78,6 +80,7 @@ Values ('Magic City', 'MGC', 'Sparkle', '5000');`
 ## Min 
 
 `SELECT MIN(SurfaceArea) from Country;`
+
  ![alt text](SnapShots/min.PNG)
 
  ## Count the number of countries
@@ -157,12 +160,19 @@ GROUP BY Continent;`
 
 ## Cases
 
-`SELECT Name, Population, LifeExpectancy, SurfaceArea,
-CASE
-	WHEN LifeExpectancy > 85 THEN 'Great Healthcare and longlife expected'
-    WHEN LifeExpectancy >= 70 THEN 'Decent healthcare and average life expected'
-    WHEN LifeExpectancy < 70 Then 'Bad Healthcare and short life expected'
-END AS "Life Expectancy Overview"
-FROM Country;`
+    SELECT Name, Population, LifeExpectancy, SurfaceArea,
+    CASE
+        WHEN LifeExpectancy > 85 THEN 'Great Healthcare and longlife expected'
+        WHEN LifeExpectancy >= 70 THEN 'Decent healthcare and average life expected'
+        WHEN LifeExpectancy < 70 Then 'Bad Healthcare and short life expected'
+    END AS "Life Expectancy Overview"
+    FROM Country;
 
 ![alt text](SnapShots/case.PNG)
+
+# Sources
+
+https://www.w3schools.com/sql/default.asp
+
+https://relational.fit.cvut.cz/dataset/World
+

@@ -166,3 +166,25 @@ WHERE SurfaceArea < ANY (SELECT Population from Country WHERE Population > 80000
 SELECT ALL Name FROM Country
 WHERE Continent = "Africa";
 
+-- Select INTO (Copies data from one table into a new table)
+SELECT * INTO CityBackup FROM City
+WHERE CountryCode = 'USA';
+
+-- CASE (conditions that return values when the first condition is met, like an if-else statement)
+SELECT Population, LifeExpectancy, SurfaceArea,
+CASE
+	WHEN LifeExpectancy > 80 AND Population > 40000000 THEN 'Realy Big Country with good life expectancy'
+	WHEN LifeExpectancy > 75 AND Population > 30000000 THEN 'Big Country with good life expectancy'
+    WHEN LifeExpectancy < 60 THEN 'low Life expectancy'
+    ELSE 'not applicable'
+END AS "Epextancy test"
+FROM Country;
+	
+-- NULL Functions IFNULL
+SELECT Name, District, ifnull(Population, 0) AS POP FROM City;
+
+-- Views
+CREATE VIEW FullView AS
+SELECT Name, IndepYear, Population, LifeEpectancy, HeadOfState FROM Counry;
+
+SELECT * FROM FullView; -- use view as a regular table
